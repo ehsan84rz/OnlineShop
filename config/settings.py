@@ -48,8 +48,9 @@ INSTALLED_APPS = [
     'allauth.account',
 
     # my apps
-    'accounts',
-    'pages',
+    'accounts.apps.AccountsConfig',
+    'pages.apps.PagesConfig',
+    'products.apps.ProductsConfig'
 ]
 
 SITE_ID = 1
