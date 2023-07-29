@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>{% block page_title %}{% endblock %}</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
           rel="stylesheet"
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
@@ -26,6 +27,20 @@
         .nav-right li {
             display: inline-block;
         }
+
+        .text-muted {
+            color: #6c757d;
+        }
+
+        .price {
+            font-family: 'Pacifico', cursive;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        {% block style %}
+
+        {% endblock %}
     </style>
 </head>
 <body>
@@ -42,8 +57,10 @@
     </div>
     <div class="nav-right">
         <ul>
-            <li><a href="{% url 'home' %}">خانه</a></li> |
-            <li><a href="{% url 'aboutus' %}">درباره ما</a></li> |
+            <li><a href="{% url 'home' %}">خانه</a></li>
+            |
+            <li><a href="{% url 'aboutus' %}">درباره ما</a></li>
+            |
             <li><a href="{% url 'products_list' %}">محصولات</a></li>
         </ul>
     </div>
@@ -52,6 +69,33 @@
 {% block content %}
 
 {% endblock %}
+
+<script>
+    function removeZero() {
+        // Find the price element on the page
+        var priceElement = document.querySelector('.price');
+        // Find the currency label element on the page
+        var currencyElement = document.querySelector('.currency');
+        // Get the current price value
+        var price = parseInt(priceElement.textContent.replace(/\s/g, ''));
+        // Check if the current currency is Rials
+        if (currencyElement.textContent === 'ریال') {
+            // Divide the price by 10 to remove the last zero
+            price = Math.floor(price / 10);
+            // Update the currency label to Tomans
+            currencyElement.textContent = 'تومن';
+        } else {
+            // Multiply the price by 10 to add a zero
+            price = price * 10;
+            // Update the currency label to Rials
+            currencyElement.textContent = 'ریال';
+        }
+        // Format the price with spaces
+        price = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        // Update the text content of the price element
+        priceElement.textContent = price;
+    }
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"

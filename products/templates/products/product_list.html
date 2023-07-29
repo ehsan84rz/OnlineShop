@@ -1,5 +1,9 @@
 {% extends '_base.html' %}
 
+{% block style %}
+
+{% endblock %}
+
 {% block page_title %}
 products list
 {% endblock %}
@@ -9,8 +13,10 @@ products list
     {% for product in products %}
         <h3>{{ product.title }}</h3>
         <p>{{ product.description }}</p>
+        <p><span class="price">{{ product.price }}</span> <span class="currency">ریال</span></p>
+        <button onclick="removeZero()">Toggle Zero</button>
 
     {% endfor %}
-
+    <script src="removeZero.js"></script>
 
 {% endblock %}
