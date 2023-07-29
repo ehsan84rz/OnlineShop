@@ -15,6 +15,7 @@ products list
         <p>{{ product.description }}</p>
         <p><span class="price">{{ product.price }}</span> <span class="currency">ریال</span></p>
         <button onclick="removeZero()">Toggle Zero</button>
+        <a href="{{ product.get_absolute_url }}"><button>جزئیات</button></a>
 
     {% endfor %}
     <script src="removeZero.js"></script>

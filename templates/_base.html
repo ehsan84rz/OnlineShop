@@ -61,7 +61,7 @@
             |
             <li><a href="{% url 'aboutus' %}">درباره ما</a></li>
             |
-            <li><a href="{% url 'products_list' %}">محصولات</a></li>
+            <li><a href="{% url 'product_list' %}">محصولات</a></li>
         </ul>
     </div>
 </nav>
@@ -90,6 +90,17 @@
             // Update the currency label to Rials
             currencyElement.textContent = 'ریال';
         }
+        // Format the price with spaces
+        price = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        // Update the text content of the price element
+        priceElement.textContent = price;
+    }
+
+    window.onload = function () {
+        // Find the price element on the page
+        var priceElement = document.querySelector('.price');
+        // Get the current price value
+        var price = parseInt(priceElement.textContent);
         // Format the price with spaces
         price = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
         // Update the text content of the price element

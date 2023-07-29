@@ -1,0 +1,13 @@
+{% extends '_base.html' %}
+
+{% block page_title %}
+{{ product.title }}
+{% endblock %}
+
+{% block content %}
+    <h3>{{ product.title }}</h3>
+    <p>{{ product.description }}</p>
+    <p><span class="price">{{ product.price }}</span> <span class="currency">ریال</span></p>
+    <button onclick="removeZero()">Toggle Zero</button>
+    <script src="removeZero.js"></script>
+{% endblock %}
