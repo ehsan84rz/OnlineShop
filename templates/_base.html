@@ -8,8 +8,45 @@
           rel="stylesheet"
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
           crossorigin="anonymous">
+    <style>
+        .nav-left {
+            float: left;
+        }
+
+        .nav-right {
+            float: right;
+        }
+
+        .nav-left ul,
+        .nav-right ul {
+            list-style: none;
+        }
+
+        .nav-left li,
+        .nav-right li {
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
+
+<nav class="nav">
+    <div class="nav-left">
+        <ul>
+            {% if user.is_authenticated %}
+                <li>خوش اومدی {{ user.username }} | <a href="{% url 'account_logout' %}">خروج</a></li>
+            {% else %}
+                <li><a href="{% url 'account_login' %}">ورود</a> | <a href="{% url 'account_signup' %}">ثبت نام</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="nav-right">
+        <ul>
+            <li><a href="{% url 'home' %}">خانه</a></li>
+            <li><a href="{% url 'aboutus' %}">درباره ما</a></li>
+        </ul>
+    </div>
+</nav>
 
 {% block content %}
 
