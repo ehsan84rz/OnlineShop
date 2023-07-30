@@ -39,6 +39,3 @@ class ProductComment(models.Model):
 
     # buyer = models.BooleanField(default=True) -> This should be in CustomUser and a FK to here
     active = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.text
