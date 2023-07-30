@@ -31,7 +31,7 @@ class ProductComment(models.Model):
 
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='comments')
     product = models.ForeignKey('products.Product', on_delete=models.CASCADE, related_name='comments')
-    text = models.CharField(max_length=2000)
+    text = models.TextField(max_length=3000)
     stars = models.CharField(max_length=10, choices=PRODUCT_STARS)
 
     datetime_created = models.DateTimeField(auto_now_add=True)
