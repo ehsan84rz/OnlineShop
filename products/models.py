@@ -20,6 +20,11 @@ class Product(models.Model):
         return reverse('product_detail', args=[self.pk])
 
 
+class ActiveCommentsManager(models.Manager):
+    def get_queryset(self):
+        return super(ActiveCommentsManager, self).get_queryset().filter(active=True)
+
+
 class Comment(models.Model):
     PRODUCT_STARS = [
         ('1', 'Very Bad',),
@@ -39,6 +44,10 @@ class Comment(models.Model):
 
     # buyer = models.BooleanField(default=True) -> This should be in CustomUser and a FK to here
     active = models.BooleanField(default=True)
+
+    # Manager (--method 3--)
+    objects = models.Manager()
+    active_comments_manager = ActiveCommentsManager
 
     def get_absolute_url(self):
         return reverse('product_detail', args=[self.product.id])
