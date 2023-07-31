@@ -39,3 +39,6 @@ class Comment(models.Model):
 
     # buyer = models.BooleanField(default=True) -> This should be in CustomUser and a FK to here
     active = models.BooleanField(default=True)
+
+    def get_absolute_url(self):
+        return reverse('product_detail', args=[self.product.id])
