@@ -20,7 +20,7 @@ class Product(models.Model):
         return reverse('product_detail', args=[self.pk])
 
 
-class ProductComment(models.Model):
+class Comment(models.Model):
     PRODUCT_STARS = [
         ('1', 'Very Bad',),
         ('2', 'Bad',),
