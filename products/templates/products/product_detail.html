@@ -1,5 +1,7 @@
 {% extends '_base.html' %}
 
+{% load static %}
+
 {% block page_title %}
     {{ product.title }}
 {% endblock %}
@@ -123,7 +125,7 @@
                                                 <div class="review__container">
                                                     <div class="review__text">
                                                         <div class="d-flex flex-sm-row flex-row">
-                                                            <img src="assets/img/others/comment-1.jpg"
+                                                            <img src="{% static 'img/others/comment-1.jpg' %}"
                                                                  alt="Review Avatar" class="review__avatar">
                                                             <div>
                                                                 <div class="review__meta">
