@@ -1,5 +1,7 @@
 from django.views import generic
 from django.shortcuts import get_object_or_404
+from django.contrib import messages
+from django.utils.translation import gettext_lazy as _
 
 from .models import Product, Comment
 from .forms import CommentForm
@@ -34,5 +36,6 @@ class CommentCreateView(generic.CreateView):
         product_id = int(self.kwargs['product_id'])  # <int:product_id> in urls.py -> path()
         product = get_object_or_404(Product, id=product_id)
         obj.product = product
+        messages.success(request=self.request, message=_("We appreciate your comment on this product"))
 
         return super().form_valid(form)

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os.path
 from pathlib import Path
+from django.contrib.messages import constants as messages
 
 from environs import Env
 
@@ -178,3 +179,8 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+
+# messages framework
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}
