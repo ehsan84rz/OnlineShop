@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-03 20:18+0330\n"
-"PO-Revision-Date: 2023-08-03 20:22+0330\n"
+"POT-Creation-Date: 2023-08-04 00:35+0330\n"
+"PO-Revision-Date: 2023-08-04 00:35+0330\n"
 "Last-Translator:   <ehsan84rz@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,7 @@ msgid "Product successfully removed from cart"
 msgstr "محصول با موفقیت از سبد خرید حذف شد"
 
 #: .\templates\cart\cart_detail.html:7 .\templates\cart\cart_detail.html:17
+#: .\templates\cart\cart_sidebar.html:9
 msgid "Cart"
 msgstr "سبد خرید"
 
@@ -51,7 +52,8 @@ msgid "Total"
 msgstr "جمع"
 
 #: .\templates\cart\cart_detail.html:66 .\templates\cart\cart_detail.html:89
-#: .\templates\cart\cart_detail.html:116
+#: .\templates\cart\cart_detail.html:116 .\templates\cart\cart_sidebar.html:27
+#: .\templates\cart\cart_sidebar.html:35
 msgid "$"
 msgstr "تومان"
 
@@ -63,10 +65,18 @@ msgstr "خالی کردن سبد خرید"
 msgid "Summary"
 msgstr "خلاصه"
 
-#: .\templates\cart\cart_detail.html:112
+#: .\templates\cart\cart_detail.html:112 .\templates\cart\cart_sidebar.html:34
 msgid "Sum Total"
 msgstr "جمع کل"
 
 #: .\templates\cart\cart_detail.html:123
 msgid "Order"
 msgstr "سفارش"
+
+#: .\templates\cart\cart_sidebar.html:38
+msgid "Go to Cart"
+msgstr "سبد خرید"
+
+#: .\templates\cart\cart_sidebar.html:39
+msgid "Checkout"
+msgstr "پرداخت"

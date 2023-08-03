@@ -30,9 +30,11 @@
             <div class="container">
                 <div class="row no-gutters mb--80">
                     <div class="col-12 col-sm-4 product-main-image d-flex align-content-center">
+                        {% if product.image %}
                         <img class="m-auto" style="max-height: 400px;"
-                             src="https://dkstatics-public.digikala.com/digikala-products/8f34ee9823202d09ee97deb9b1c8e3300a9a24d8_1643265727.jpg?x-oss-process=image/resize,w_1600/quality,q_80"
+                             src="{{ product.image.url }}"
                              alt="">
+                        {% endif %}
                     </div>
                     <div class="col-12 col-sm-8 product-main-details mt-md--50">
                         <div class="product-summary pl-lg--30 pl-md--0 text-right p-4">
@@ -48,17 +50,18 @@
 
                             <form action="{% url 'cart:cart_add' product.id %}" method="post">
                                 {% csrf_token %}
-                            <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
-                                <div class="quantity-wrapper d-flex justify-content-start">
-                                    <div class="quantity">
-                                        <input type="number" class="quantity-input" name="quantity" id="qty" value="1"
-                                               min="1" max="30">
+                                <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
+                                    <div class="quantity-wrapper d-flex justify-content-start">
+                                        <div class="quantity">
+                                            <input type="number" class="quantity-input" name="quantity" id="qty"
+                                                   value="1"
+                                                   min="1" max="30">
+                                        </div>
                                     </div>
+                                    <button type="submit" class="btn btn-small btn-bg-red btn-color-white btn-hover-2">
+                                        {% trans 'Add to cart' %}
+                                    </button>
                                 </div>
-                                <button type="submit" class="btn btn-small btn-bg-red btn-color-white btn-hover-2">
-                                    {% trans 'Add to cart' %}
-                                </button>
-                            </div>
                             </form>
 
                             <div class="product-footer-meta mt-5 pt-5">
@@ -128,30 +131,30 @@
                                         <h3 class="review__title">{{ product.comments.all|only_active_comments|length }}
                                             {% trans 'Comments for' %} {{ product.title }}</h3>
                                         <ul class="review__list">
-{#                                            {% for comment in product.comments.all %}#}
+                                            {#                                            {% for comment in product.comments.all %}#}
                                             {% for comment in product.comments.all|only_active_comments %}
                                                 <li class="review__item">
-                                                <div class="review__container">
-                                                    <div class="review__text">
-                                                        <div class="d-flex flex-sm-row flex-row">
-                                                            <img src="{% static 'img/others/comment-1.jpg' %}"
-                                                                 alt="Review Avatar" class="review__avatar">
-                                                            <div>
-                                                                <div class="review__meta">
-                                                                    <span class="review__published-date">{{ comment.datetime_created }}</span>
-                                                                    <span class="review__dash">-</span>
-                                                                    <strong class="review__author px-4">{{ comment.author.username }}</strong>
-                                                                    <span class="product-rating m-0 star-rating star-five">
+                                                    <div class="review__container">
+                                                        <div class="review__text">
+                                                            <div class="d-flex flex-sm-row flex-row">
+                                                                <img src="{% static 'img/others/comment-1.jpg' %}"
+                                                                     alt="Review Avatar" class="review__avatar">
+                                                                <div>
+                                                                    <div class="review__meta">
+                                                                        <span class="review__published-date">{{ comment.datetime_created }}</span>
+                                                                        <span class="review__dash">-</span>
+                                                                        <strong class="review__author px-4">{{ comment.author.username }}</strong>
+                                                                        <span class="product-rating m-0 star-rating star-five">
                                                                         <span>Rated <strong
                                                                                 class="rating">{{ comment.stars }}</strong> out of 5</span>
                                                                     </span>
+                                                                    </div>
+                                                                    <p class="review__description text-right px-4">{{ comment.text }}</p>
                                                                 </div>
-                                                                <p class="review__description text-right px-4">{{ comment.text }}</p>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </li>
+                                                </li>
                                             {% endfor %}
                                         </ul>
                                         <div class="review-form-wrapper">
@@ -161,11 +164,12 @@
                                                     <span class="reply-title pull-right">نظر خود را بنویسید</span>
                                                     <br>
                                                     {% if user.is_authenticated %}
-                                                        <form action="{% url 'comment_create' product.id %}" method="post">
-                                                        {% csrf_token %}
-                                                        {{ comment_form|crispy }}
-                                                        <input type="submit" value="Send">
-                                                    </form>
+                                                        <form action="{% url 'comment_create' product.id %}"
+                                                              method="post">
+                                                            {% csrf_token %}
+                                                            {{ comment_form|crispy }}
+                                                            <input type="submit" value="Send">
+                                                        </form>
                                                     {% else %}
                                                         <h3>
                                                             {% trans 'For submitting comments, Please ' %}
