@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-01 16:08+0330\n"
-"PO-Revision-Date: 2023-08-01 00:29+0330\n"
+"POT-Creation-Date: 2023-08-03 20:23+0330\n"
+"PO-Revision-Date: 2023-08-03 20:23+0330\n"
 "Last-Translator:   <ehsan84rz@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -83,21 +83,29 @@ msgstr "جزئیات محصول"
 msgid "$"
 msgstr "تومان"
 
-#: .\templates\products\product_detail.html:57
+#: .\templates\products\product_detail.html:59
 msgid "Add to cart"
 msgstr "اضافه به سبد خرید"
 
-#: .\templates\products\product_detail.html:77
+#: .\templates\products\product_detail.html:81
 msgid "Product Descriptions"
 msgstr "توضیحات محصول"
 
-#: .\templates\products\product_detail.html:85
+#: .\templates\products\product_detail.html:89
 msgid "Comments"
 msgstr "نظرات"
 
-#: .\templates\products\product_detail.html:125
+#: .\templates\products\product_detail.html:129
 msgid "Comments for"
 msgstr "نظر برای"
+
+#: .\templates\products\product_detail.html:171
+msgid "For submitting comments, Please "
+msgstr "برای ثبت نظر، لطفا "
+
+#: .\templates\products\product_detail.html:173
+msgid "Login"
+msgstr "وارد شوید"
 
 #: .\views.py:39
 msgid "We appreciate your comment on this product"

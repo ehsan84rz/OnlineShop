@@ -160,11 +160,20 @@
                                                 <div class="col-lg-8 m-auto">
                                                     <span class="reply-title pull-right">نظر خود را بنویسید</span>
                                                     <br>
-                                                    <form action="{% url 'comment_create' product.id %}" method="post">
+                                                    {% if user.is_authenticated %}
+                                                        <form action="{% url 'comment_create' product.id %}" method="post">
                                                         {% csrf_token %}
                                                         {{ comment_form|crispy }}
                                                         <input type="submit" value="Send">
                                                     </form>
+                                                    {% else %}
+                                                        <h3>
+                                                            {% trans 'For submitting comments, Please ' %}
+                                                            <a href="{% url 'account_login' %}">
+                                                                {% trans 'Login' %}
+                                                            </a>
+                                                        </h3>
+                                                    {% endif %}
                                                 </div>
                                             </div>
                                         </div>
