@@ -35,11 +35,11 @@
                                         <thead>
                                         <tr>
                                             <th>&nbsp;</th>
-                                            <th>عکس محصول</th>
-                                            <th>نام محصول</th>
-                                            <th>قیمت</th>
-                                            <th>مقدار</th>
-                                            <th>مجموع</th>
+                                            <th>{% trans 'Product Image' %}</th>
+                                            <th>{% trans 'Product Name' %}</th>
+                                            <th>{% trans 'Price' %}</th>
+                                            <th>{% trans 'Quantity' %}</th>
+                                            <th>{% trans 'Total' %}</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -63,7 +63,7 @@
                                                 </td>
                                                 <td class="product-price">
                                                     <span class="product-price-wrapper">
-                                                        <span class="money">{{ item.product_obj.price }} تومان</span>
+                                                        <span class="money">{{ item.product_obj.price }} {% trans '$' %}</span>
                                                     </span>
                                                 </td>
                                                 <td class="product-quantity">
@@ -86,7 +86,7 @@
                                                 </td>
                                                 <td class="product-total-price">
                                                     <span class="product-price-wrapper">
-                                                        <span class="money">{{ item.total_price }} تومان</span>
+                                                        <span class="money">{{ item.total_price }} {% trans '$' %}</span>
                                                     </span>
                                                 </td>
                                             </tr>
@@ -98,29 +98,29 @@
                         </div>
                         <div class="row no-gutters border-top pt--20 mt--20">
                             <div class="col-sm-6 text-sm-right">
-                                <button type="submit" class="cart-form__btn">خالی کردن سبد خرید</button>
+                                <button type="submit" class="cart-form__btn">{% trans 'Empty the shopping cart' %}</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="cart-collaterals">
                             <div class="cart-totals">
-                                <h5 class="font-size-14 font-bold mb--15">مجموع</h5>
+                                <h5 class="font-size-14 font-bold mb--15">{% trans 'Summary' %}</h5>
                                 <div class="cart-calculator">
                                     <div class="cart-calculator__item order-total">
                                         <div class="cart-calculator__item--head">
-                                            <span>جمع کل</span>
+                                            <span>{% trans 'Sum Total' %}</span>
                                         </div>
                                         <div class="cart-calculator__item--value">
                                                 <span class="product-price-wrapper">
-                                                    <span class="money">{{ cart.get_total_price }} تومان</span>
+                                                    <span class="money">{{ cart.get_total_price }} {% trans '$' %}</span>
                                                 </span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <a href="checkout.html" class="btn btn-fullwidth btn-bg-red btn-color-white btn-hover-2">
-                                ثبت سفارش
+                                {% trans 'Order' %}
                             </a>
                         </div>
                     </div>
