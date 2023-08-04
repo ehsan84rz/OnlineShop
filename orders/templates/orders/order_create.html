@@ -22,7 +22,7 @@
                             <h2>{% trans 'Order details' %}</h2>
                         </div>
                         <div class="checkout-form">
-                            <form action="" class="form form--checkout">
+                            <form action="" method="POST" class="form form--checkout">
                                 {% csrf_token %}
                                 <div class="form-row mb--20">
                                     <div class="form__group col-md-6 mb-sm--30">
@@ -43,7 +43,8 @@
                                 <div class="form-row mb--20">
                                     <div class="form__group col-12">
                                         <label for="address"
-                                               class="form__label form__label--2">{% trans 'Address' %}</label>
+                                               class="form__label form__label--2">{% trans 'Address' %} <span
+                                                class="required">*</span></label>
                                         <input type="text" name="address" id="address"
                                                class="form__input form__input--2">
                                     </div>
