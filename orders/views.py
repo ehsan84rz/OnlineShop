@@ -37,7 +37,7 @@ def order_create_view(request):
             request.user.first_name = order_obj.user.first_name
             request.user.last_name = order_obj.user.last_name
             request.user.save()
-            messages.success(request, 'Your Order has successfully placed')
+            messages.success(request, _('Your Order has successfully placed'))
 
     # request.user.email = get_user_model().user.email
     return render(request, 'orders/order_create.html', context={'form': order_form})
