@@ -58,7 +58,7 @@ class Cart:
     def __len__(self):
         return sum(item['quantity'] for item in self.cart.values())
 
-    def clear(self, product):
+    def clear(self):
         del self.session['cart']
         self.save()
 
