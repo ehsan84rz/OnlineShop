@@ -3,10 +3,13 @@ from django.shortcuts import reverse
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 
+from ckeditor.fields import RichTextField
+
 
 class Product(models.Model):
     title = models.CharField(max_length=100, verbose_name=_('title'))
-    description = models.TextField(verbose_name=_('description'))
+    description = RichTextField(verbose_name=_('description'))
+    short_description = models.CharField(verbose_name=_('Short Description'), max_length=300, blank=True)
     price = models.PositiveIntegerField(default=0, verbose_name=_('price'))
     active = models.BooleanField(default=True)
     # avatar = models.ImageField(height_field=60, width_field=60, blank=True, null=True)

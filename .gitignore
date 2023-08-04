@@ -141,3 +141,4 @@ cython_debug/
 # others
 .idea/
 .vscode/
+staticfiles
