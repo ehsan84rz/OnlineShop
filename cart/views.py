@@ -32,10 +32,10 @@ def add_to_cart_view(request, product_id):
         cleaned_data = form.cleaned_data
         quantity = cleaned_data['quantity']
         cart.add(product, quantity, replace_current_quantity=cleaned_data['inplace'])
-        return redirect('product_detail', product_id)
+        return redirect(request.META['HTTP_REFERER'])
     else:
         messages.error(request, _('The entered value is not valid'))
-        return redirect('product_detail', product_id)
+        return redirect(request.META['HTTP_REFERER'])
 
 
 def remove_from_cart_view(request, product_id):
