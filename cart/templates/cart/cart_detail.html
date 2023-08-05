@@ -98,7 +98,12 @@
                         </div>
                         <div class="row no-gutters border-top pt--20 mt--20">
                             <div class="col-sm-6 text-sm-right">
-                                <button type="submit" class="cart-form__btn">{% trans 'Empty the shopping cart' %}</button>
+                                {% if cart %}
+                                    <form action="{% url 'cart:cart_clear' %}" method="POST">
+                                        {% csrf_token %}
+                                        <button type="submit" class="cart-form__btn">{% trans 'Empty the shopping cart' %}</button>
+                                    </form>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
