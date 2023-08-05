@@ -46,6 +46,7 @@ def remove_from_cart_view(request, product_id):
     return redirect('cart:cart_detail')
 
 
+@require_POST
 def clear_the_cart(request):
     cart = Cart(request)
 
