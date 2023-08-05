@@ -101,7 +101,8 @@
                                 {% if cart %}
                                     <form action="{% url 'cart:cart_clear' %}" method="POST">
                                         {% csrf_token %}
-                                        <button type="submit" class="cart-form__btn">{% trans 'Empty the shopping cart' %}</button>
+                                        <button type="submit"
+                                                class="cart-form__btn">{% trans 'Empty the shopping cart' %}</button>
                                     </form>
                                 {% endif %}
                             </div>
@@ -124,7 +125,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="checkout.html" class="btn btn-fullwidth btn-bg-red btn-color-white btn-hover-2">
+                            <a href="{% url 'orders:order_create' %}"
+                               class="btn btn-fullwidth btn-bg-red btn-color-white btn-hover-2">
                                 {% trans 'Order' %}
                             </a>
                         </div>
