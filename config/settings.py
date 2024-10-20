@@ -25,10 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('DJANGO_SECRET_KEY')
+SECRET_KEY = 'django-insecure-$ef6pv08y6*cbsav2s&pa73p^4$&jgxgty8c)(an1f-blpf1oz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DJANGO_DEBUG')
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0']
 
@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'persian_translate.apps.PersianTranslateConfig',
     'orders.apps.OrdersConfig',
+    'payment.apps.PaymentConfig',
 ]
 
 SITE_ID = 1
@@ -197,3 +198,6 @@ ACCOUNT_UNIQUE_EMAIL = True
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
+
+# ZarinPal
+ZARINPAL_MERCHANT_ID = 'aaabbbaaabbbaaabbbaaabbbaaabbbaaabbb'

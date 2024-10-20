@@ -22,7 +22,7 @@
                             <h2>{% trans 'Order details' %}</h2>
                         </div>
                         <div class="checkout-form">
-                            <form action="" method="POST" class="form form--checkout">
+                            <form action="{% url 'orders:order_create' %}" method="POST" class="form form--checkout">
                                 {% csrf_token %}
                                 <div class="form-row mb--20">
                                     <div class="form__group col-md-6 mb-sm--30">
